@@ -1,22 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// import Bands from "./Bands.js";
+import { useState } from "react";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  const handleClick = () => {
+    setCounter(counter + 1);
+  };
+  const minusClick = () => {
+    setCounter(counter - 1);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{counter}</p>
+        <button onClick={handleClick}>+</button>
+        <button onClick={minusClick}>-</button>
+        {/* <Bands content={"BVB"} />
+        <Bands content={"MIW"} />
+        <Bands content={"INK"} />
+        <Bands content={"PAD"} /> */}
       </header>
     </div>
   );
