@@ -4,8 +4,14 @@ import { useState } from "react";
 import Message from "../Messages/Messages";
 
 const initialMessage = [
-  "No', says Tom Kennedy",
-  "Good Morning, Good Afternnon, Good Evening, Good Night",
+  {
+    content: "No', says Tom Kennedy",
+    author: "Tom K",
+  },
+  {
+    content: "Good Morning, Good Afternnon, Good Evening, Good Night",
+    author: "Hamza Ak",
+  },
 ];
 
 // Given I type text in the input field
@@ -29,13 +35,14 @@ function MessageBoard() {
     // newMessages.push(newMessage); // yes, yes, yes. Mutate new states.
     // setMessages(newMessages);
     // Shorter way
-    const newMessages = [...messages, newMessage];
-    console.log(newMessages);
-    setMessages(newMessages);
-    // setMessages([...messages, newMessage]);
+    // const newMessages = [...messages, newMessage];
+    // console.log(newMessages);
+    // setMessages(newMessages);
+    setMessages([...messages, newMessage]);
   };
   return (
     <>
+     
       <form onSubmit={handleSubmit}>
         <label>
           What's your fave saying?
@@ -46,8 +53,8 @@ function MessageBoard() {
       {/* div */}
       {
         // Using .map or forEach the first argument is always the one we know.
-        messages.map((message, index) => (
-          <Message key={index} content={message} />
+        messages.map((messageObj, index) => (
+          <Message key={index} message={messageObj} />
         ))
       }
       {/* </div> */}
