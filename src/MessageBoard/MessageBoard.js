@@ -5,11 +5,11 @@ import Message from "../Messages/Messages";
 
 const initialMessage = [
   {
-    content: "No', says Tom Kennedy",
+    content: "No, says Tom Kennedy",
     author: "Tom K",
   },
   {
-    content: "Good Morning, Good Afternnon, Good Evening, Good Night",
+    content: "Good Morning, Good Afternnon, Good Evening, Good Night!",
     author: "Hamza Ak",
   },
 ];
@@ -26,8 +26,17 @@ function MessageBoard() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Event", event); //.target is getting the form
-    const newMessage = event.target[0].value;
+    console.log("Event", event);
+    //.target is getting the element that triggers the event.
+    // In our case it gets triggered by the input aka form.
+    const newContent = event.target[0].value;
+    const newAuthor = event.target[1].value;
+
+    const newMessage = {
+      content: newContent,
+      author: newAuthor,
+    };
+    console.log("newMessage", newMessage);
     // messages.push(newMessages) => no, no, no, no. Don't mutate old states.
 
     // COPY THE ARRAY
@@ -40,12 +49,26 @@ function MessageBoard() {
     // setMessages(newMessages);
     setMessages([...messages, newMessage]);
   };
+
+  const handleDelete = (message) => {
+    //filter
+    const newMessages = messages.filter((item) => {
+      if (item !== message) {
+        return message;
+      }
+    });
+    setMessages(newMessages);
+    //The new array (without the one we're deleting)
+  };
   return (
     <>
-     
       <form onSubmit={handleSubmit}>
         <label>
           What's your fave saying?
+          <input type="text" />
+        </label>
+        <label>
+          Who said it?
           <input type="text" />
         </label>
         <button>Share</button>
@@ -53,8 +76,14 @@ function MessageBoard() {
       {/* div */}
       {
         // Using .map or forEach the first argument is always the one we know.
+        // Index value, is just for react as default value but if we add it, it removes the warning from the console.
+
         messages.map((messageObj, index) => (
-          <Message key={index} message={messageObj} />
+          <Message
+            key={index}
+            message={messageObj}
+            handleDelete={handleDelete}
+          />
         ))
       }
       {/* </div> */}

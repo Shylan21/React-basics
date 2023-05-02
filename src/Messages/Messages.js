@@ -1,10 +1,14 @@
-function Message(props) {
+function Message({ message, handleDelete }) {
+  const handleClick = () => {
+    handleDelete(message);
+  };
   return (
-    <>
-      <p>
-        {props.message.author}: {props.message.content}
-      </p>
-    </>
+    <div>
+      <span>
+        {message.author}: {message.content}
+      </span>
+      <button onClick={handleClick}>Delete</button>
+    </div>
   );
 }
 
