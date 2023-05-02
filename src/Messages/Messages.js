@@ -1,3 +1,4 @@
+// What's the state we need
 function Message({ message, handleDelete }) {
   const handleClick = () => {
     handleDelete(message);
