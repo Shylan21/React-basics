@@ -68,7 +68,7 @@ function MessageBoard() {
     const newMessages = messages.map((item) => {
       if (item === message) {
         return {
-          ...item, //why it works if I type message instead
+          ...item, //is an alias for the same thing as message because it's what we're passing through.
           heard: value,
         };
       } else {
@@ -76,14 +76,14 @@ function MessageBoard() {
       }
     });
     setMessages(newMessages);
-    // const messageToUpdate = messages.find((item) => item === message);
-    // const updatedMessage = {
-    //   ...messageToUpdate,
-    //   heard: value,
-    // };
-    // const filteredMessage = messages.filter((item) => item !== message);
-    // filteredMessage.push(updatedMessage); // inserts at the end
-    // setMessages(filteredMessage);
+    //   const messageToUpdate = messages.find((item) => item === message);
+    //   const updatedMessage = {
+    //  ...messageToUpdate,
+    // heard: value,
+    //  };
+    //    const filteredMessage = messages.filter((item) => item !== message);
+    //    filteredMessage.push(updatedMessage); // inserts at the end
+    //    setMessages(filteredMessage);
   };
 
   return (
@@ -106,7 +106,7 @@ function MessageBoard() {
 
         messages.map((messageObj, index) => (
           <Message
-            key={index}
+            key={index} // reacts needs a key when passing thtough an Obj giving an unique id if we don't have an id in the object so we don't have an error message in the console
             message={messageObj}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}

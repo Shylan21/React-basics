@@ -25,7 +25,7 @@ function Message({ message, handleDelete, handleUpdate }) {
       {message.author === "Tom K" && <span>🔥</span>}
       {/* {message.author === "Hamza Ak" ? <span>🔥</span> : <span>🌊</span>} */}
       <input type="checkbox" onChange={handleChange} checked={message.heard} />
-      {/* // Why without this 'checked' it was giving me the weird problem */}
+
       <button onClick={handleClick}>Delete</button>
     </div>
   );
