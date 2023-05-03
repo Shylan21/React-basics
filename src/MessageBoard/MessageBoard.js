@@ -63,6 +63,18 @@ function MessageBoard() {
     setMessages(newMessages);
     //The new array (without the one we're deleting)
   };
+
+  const handleUpdate = (message, value) => {
+    const messageToUpdate = messages.find((item) => item === message);
+    const updatedMessage = {
+      ...messageToUpdate,
+      heard: value,
+    };
+    const filteredMessage = messages.filter((item) => item !== message);
+    filteredMessage.push(updatedMessage); // inserts at the end
+    setMessages(filteredMessage);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -86,6 +98,7 @@ function MessageBoard() {
             key={index}
             message={messageObj}
             handleDelete={handleDelete}
+            handleUpdate={handleUpdate}
           />
         ))
       }
