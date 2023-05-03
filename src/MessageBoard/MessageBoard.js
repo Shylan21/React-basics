@@ -7,10 +7,12 @@ const initialMessage = [
   {
     content: "No, says Tom Kennedy",
     author: "Tom K",
+    heard: true,
   },
   {
     content: "Good Morning, Good Afternnon, Good Evening, Good Night!",
     author: "Hamza Ak",
+    heard: false,
   },
 ];
 
@@ -35,6 +37,7 @@ function MessageBoard() {
     const newMessage = {
       content: newContent,
       author: newAuthor,
+      heard: false,
     };
     console.log("newMessage", newMessage);
     // messages.push(newMessages) => no, no, no, no. Don't mutate old states.
