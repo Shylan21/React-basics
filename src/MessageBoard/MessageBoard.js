@@ -68,7 +68,7 @@ function MessageBoard() {
     const newMessages = messages.map((item) => {
       if (item === message) {
         return {
-          ...item, //why it works if i type message instead
+          ...item, //why it works if I type message instead
           heard: value,
         };
       } else {

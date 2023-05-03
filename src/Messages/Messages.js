@@ -14,7 +14,8 @@ function Message({ message, handleDelete, handleUpdate }) {
     handleUpdate(message, e.target.checked);
     // Handle event
   };
-  // The syntax ? : is a shorter version of the if statement
+  // The syntax ? : is a shorter version of the if statement:
+  // If it's true, apply what's before the ':', else apply what's after.
   // {message.author === "Tom K" && <span>🔥</span>} => anothere way of writing an if statement
   return (
     <div>
