@@ -65,14 +65,25 @@ function MessageBoard() {
   };
 
   const handleUpdate = (message, value) => {
-    const messageToUpdate = messages.find((item) => item === message);
-    const updatedMessage = {
-      ...messageToUpdate,
-      heard: value,
-    };
-    const filteredMessage = messages.filter((item) => item !== message);
-    filteredMessage.push(updatedMessage); // inserts at the end
-    setMessages(filteredMessage);
+    const newMessages = messages.map((item) => {
+      if (item === message) {
+        return {
+          ...item, //why it works if i type message instead
+          heard: value,
+        };
+      } else {
+        return item;
+      }
+    });
+    setMessages(newMessages);
+    // const messageToUpdate = messages.find((item) => item === message);
+    // const updatedMessage = {
+    //   ...messageToUpdate,
+    //   heard: value,
+    // };
+    // const filteredMessage = messages.filter((item) => item !== message);
+    // filteredMessage.push(updatedMessage); // inserts at the end
+    // setMessages(filteredMessage);
   };
 
   return (

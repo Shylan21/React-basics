@@ -11,7 +11,6 @@ function Message({ message, handleDelete, handleUpdate }) {
 
   const handleChange = (e) => {
     // Know whether the checkbox is checked or not
-    console.log(e);
     handleUpdate(message, e.target.checked);
     // Handle event
   };
@@ -24,7 +23,8 @@ function Message({ message, handleDelete, handleUpdate }) {
       </span>
       {message.author === "Tom K" && <span>🔥</span>}
       {/* {message.author === "Hamza Ak" ? <span>🔥</span> : <span>🌊</span>} */}
-      <input type="checkbox" onChange={handleChange} />
+      <input type="checkbox" onChange={handleChange} checked={message.heard} />
+      {/* // Why without this 'checked' it was giving me the weird problem */}
       <button onClick={handleClick}>Delete</button>
     </div>
   );
