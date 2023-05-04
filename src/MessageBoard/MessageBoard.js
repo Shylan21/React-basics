@@ -106,7 +106,7 @@ function MessageBoard() {
 
         messages.map((messageObj, index) => (
           <Message
-            key={index} // reacts needs a key when passing thtough an Obj giving an unique id if we don't have an id in the object so we don't have an error message in the console
+            key={index} // reacts needs a key when passing through an Obj giving an unique id if we don't have an id in the object so we don't have an error message in the console
             message={messageObj}
             handleDelete={handleDelete}
             handleUpdate={handleUpdate}
