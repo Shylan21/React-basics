@@ -1,7 +1,7 @@
 // REQUIREMENTS
 // Show all repositories for me on the page
 // Show input field where I can type an user's github username
-// When i hit the button, i wanna see their repositories on the page.
+// When I hit the button, i wanna see their repositories on the page.
 
 import { useEffect, useState } from "react";
 
