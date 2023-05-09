@@ -5,11 +5,13 @@ function Quotes() {
 
   // Should only happen once but as it is, will loop it without stopping
   useEffect(() => {
-    // UseEffect takes two arguments: the first is 'what yo want to happen i.e. fetch request. The second one is the array
+    // UseEffect takes two arguments: the first is 'what yo want to happen, or in other words, the funcition to run. In our case the fetch request.
+    // By default, an effect will run after every render, but we can control this by adding its second argument: an array of dependencies
+    // Which is the array of dependencies.
     fetch("https://api.breakingbadquotes.xyz/v1/quotes/5")
       .then((res) => res.json())
       .then((data) => setQuotes(data));
-  }, []); // The empty array tells the program 'show it only once, when we load the page'
+  }, []); // The empty array tells the program to run the code just once and 'show it only once, when we load the page'
 
   return (
     <>
