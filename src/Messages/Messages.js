@@ -4,13 +4,14 @@ const heardStyles = {
   textDecoration: "line-through",
   color: "green",
 };
+
 function Message({ message, handleDelete, handleUpdate }) {
   const handleClick = () => {
     handleDelete(message);
   };
 
   const handleChange = (e) => {
-    // Know whether the checkbox is checked or not
+    // Know whether the checkbox is checked or not 
     handleUpdate(message, e.target.checked);
     // Handle event
   };

@@ -1,11 +1,11 @@
 import "./App.css";
-import MessageBoard from "./MessageBoard/MessageBoard.js";
+import { Quotes } from "./Quotes";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <MessageBoard />
+        <Quotes />
       </header>
     </div>
   );
