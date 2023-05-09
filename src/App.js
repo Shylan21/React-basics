@@ -1,5 +1,6 @@
 import "./App.css";
 // import { Quotes } from "./Quotes";
+// add all filex name in comments 
 import { Input } from "./Input";
 
 function App() {
