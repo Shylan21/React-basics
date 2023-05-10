@@ -3,12 +3,11 @@ import "./App.css";
 // add all filex name in comments
 
 import { Routes, Route, Link } from "react-router-dom";
-import { Input, OneInput } from "./Input";
+import { Repos, Repo } from "./Input";
 
 function App() {
   return (
     <>
-     
       <div className="App">
         <header className="App-header">
           <Link to="/">Home</Link>
@@ -16,22 +15,16 @@ function App() {
             <Route
               path="/"
               //  => matches anything in the url bar after the /.
-              element={<Input />}
+              element={<Repos />}
             />
             {/* <Link to={`/${username}/${repo.name}`}>{repo.name}</Link> => plz go here and show what we want with 'route'*/}
-            <Route path="/:username/:reponame" element={<OneInput />} />
+            <Route path="/:username/:reponame" element={<Repo />} />
             {/* I want to match in the url whats inside here */}
           </Routes>
         </header>
-      </div>{" "}
+      </div>
     </>
   );
-  {
-    /*    {/* <Quotes /> */
-  }
-  {
-    /*      <Input /> */
-  }
 }
 
 export default App;

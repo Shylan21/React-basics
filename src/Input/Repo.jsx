@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function OneInput() {
+function Repo() {
   const [repo, setRepo] = useState({});
   const [notFound, setNotFound] = useState(false);
 
   const params = useParams();
+  console.log("param", params);
 
   useEffect(() => {
     fetch(`https://api.github.com/repos/${params.username}/${params.reponame}`)
@@ -29,10 +30,8 @@ function OneInput() {
       ) : (
         <div>
           <ul>
-            <li>name: {repo.name}</li>
-            <li>forks: {repo.forks}</li>
-            <li>stars: {repo.stargazers_count}</li>
-            <li>visibility: {repo.visibility}</li>
+            <li>Name: {repo.name}</li>
+            <li>Visibility: {repo.visibility}</li>
           </ul>
         </div>
       )}
@@ -40,4 +39,4 @@ function OneInput() {
   );
 }
 
-export default OneInput;
+export default Repo;

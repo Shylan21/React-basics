@@ -1,3 +1,3 @@
-import Input from "./Input";
-import OneInput from "./OneInput";
-export { Input, OneInput };
+import Repos from "./Repos";
+import Repo from "./Repo";
+export { Repos, Repo };

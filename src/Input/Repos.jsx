@@ -13,7 +13,7 @@ const initialFormData = {
   github: "Shylan21",
 };
 
-function Input() {
+function Repos() {
   const [repos, setRepos] = useState([]);
   const [username, setUsername] = useState("Shylan21");
   const [formData, setFormData] = useState(initialFormData);
@@ -30,7 +30,8 @@ function Input() {
         } else {
           setNotFound(false);
           setRepos(data);
-        }
+          
+        }console.log('data', data)
       });
   }, [username]);
 
@@ -64,4 +65,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default Repos;
