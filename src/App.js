@@ -8,9 +8,10 @@ import { Input, OneInput } from "./Input";
 function App() {
   return (
     <>
-      <Link to="/">Home</Link>
+     
       <div className="App">
         <header className="App-header">
+          <Link to="/">Home</Link>
           <Routes>
             <Route
               path="/"
