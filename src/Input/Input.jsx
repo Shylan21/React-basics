@@ -6,8 +6,8 @@
 // Click repo e navigate to /user/repo-name and show information about the repo
 // Able to navigate back to the home page and getting back the list of repos of the user
 
-
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const initialFormData = {
   github: "Shylan21",
@@ -17,11 +17,21 @@ function Input() {
   const [repos, setRepos] = useState([]);
   const [username, setUsername] = useState("Shylan21");
   const [formData, setFormData] = useState(initialFormData);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
+    // how do we access the reponame?
+
     fetch(`https://api.github.com/users/${username}/repos`)
       .then((res) => res.json()) // read the response format which is stored in JSON
-      .then((data) => setRepos(data));
+      .then((data) => {
+        if (data.message === "Not Found") {
+          setNotFound(true);
+        } else {
+          setNotFound(false);
+          setRepos(data);
+        }
+      });
   }, [username]);
 
   const handleSubmit = (e) => {
@@ -35,6 +45,7 @@ function Input() {
 
   return (
     <>
+      {notFound && <div>user '{username}' does not exist</div>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -45,7 +56,9 @@ function Input() {
         <button>Get repos!</button>
       </form>
       {repos.map((repo) => (
-        <div>{repo.name}</div>
+        <div>
+          <Link to={`/${username}/${repo.name}`}>{repo.name}</Link>
+        </div>
       ))}
     </>
   );

@@ -1,3 +1,3 @@
 import Input from "./Input";
-
-export { Input };
+import OneInput from "./OneInput";
+export { Input, OneInput };
