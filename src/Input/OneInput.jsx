@@ -6,16 +6,14 @@ function OneInput() {
   const [notFound, setNotFound] = useState(false);
 
   const params = useParams();
-  console.log("parameters", params);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${params.username}/${params.reponame}`)
+    fetch(`https://api.github.com/repos/${params.username}/${params.reponame}`)
       .then((res) => res.json()) // read the response format which is stored in JSON
       .then((data) => {
         if (data.message === "Not Found") {
           setNotFound(true);
         } else {
-          console.log(data);
           setNotFound(false);
           setRepo(data);
         }
