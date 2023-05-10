@@ -3,6 +3,10 @@
 // Show input field where I can type an user's github username
 // When I hit the button, i wanna see their repositories on the page.
 
+// Click repo e navigate to /user/repo-name and show information about the repo
+// Able to navigate back to the home page and getting back the list of repos of the user
+
+
 import { useEffect, useState } from "react";
 
 const initialFormData = {
@@ -16,7 +20,7 @@ function Input() {
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${username}/repos`)
-      .then((res) => res.json()) // reas the response format which is stored in JSON
+      .then((res) => res.json()) // read the response format which is stored in JSON
       .then((data) => setRepos(data));
   }, [username]);
 
